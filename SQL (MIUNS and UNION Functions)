@@ -1,0 +1,42 @@
+
+
+write a query to list invoices  information (vendor_id,vendor_name,invoice_id) 
+that are NOT paid USING MINUS operator for the vendor_id=123 (tables: invoices,paid_invoices) (20 pts)
+
+select v.vendor_id, v.vendor_name, iv.invoice_id
+from vendors v, invoices iv
+where v.vendor_id = iv.vendor_id and v.vendor_id = 123
+
+Minus
+
+Select v.vendor_id, v.vendor_name, ip.invocie_id
+From vendors v, paid_invoices ip
+Where v.vendor_id = ip.vendor_id and v.vendor_id =123
+
+
+
+---------------------------------------------
+
+write a query to list vendor information and invoices that are in three tables 
+(invoices,paid_invoices,invoice_archive) using UNION for vendor_id=34 
+
+
+
+select v.vendor_ID, v.vendor_name, iv.invoice_ID, iv.invoice_total
+from vendors v, invoices iv
+where v.vendor_id = iv.vendor_id and  v.vendor_id=34
+
+union
+
+Select vendor_ID, vendor_name, paid_invoices, invoice_total
+from vendors v, paid_invoices iv
+where v.vendor_ID = iv.vendor_ID and vendor_Id=34
+
+union
+
+select v.vendor_ID, vendor name, invoice_archive, invoice_total
+from vendors v, invoice_archive iv
+where v.vendor_ID=iv.vendor_ID and vendor_ID=34;
+
+
+
