@@ -1,0 +1,23 @@
+(3)
+Select first_name, Last_name, department_name
+From employees INNER JOIN department
+ON employee.department_name = department.department_name
+
+(4)
+Select vendor.vendor_city , vendor.vendor_state, vendor.vendor_zip_code
+From vendor INNER JOIN invoice 
+On invoice.vendor_ID = vendor.vendor_ID
+Where invoice.credit_total >0;
+
+(5)
+Select vendor.vendor_names, vendor.vendor_city,vendor.vendor_state, vendor.vendor_zip_code
+From vendors RIGHT JOIN active_invoice
+ON active_invoice.vendor_ID vendor.vendorID
+Where active_invoice.num_row =< 15;
+
+(6)
+Select vendor.vendors_name, vendor.vendors_address, 
+From vendor INNER JOIN active_invoice
+ON active_invoice.vendor_ID = vendor.vendor_ID
+Where active_invoice.invoice_total < 1000.
+
