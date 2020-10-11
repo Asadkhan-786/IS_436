@@ -1,0 +1,50 @@
+SELECT TABLE_NAME, NUM_ROWS
+From USER_TABLES
+Where NUM_ROWS =<15;
+
+  (1) Find all invoices where the vendor_id  is 122.
+Select vender_id
+ from invoices
+Where (vendor_id = 122);
+--------------------------------------------------
+//(2) Find all invoices where the invoice_total is 
+greater than 10000$ (ten thousand dollars)
+
+Select invoice_total
+From invoice
+Where (invoice_total >1000);
+---------------------------------------------------
+
+//  (3) Find all vendors  (vendor_id, vendor_name, vendor_phone)
+for those whose address is registered 
+in (Vendor_city: Fresno, Vendor_state: CA, Vendor_Zip_code: 93711);
+//
+Select vendors_id, vendor_name, vendor_phone
+From vendors
+Where (vendor_city = ‘Fresno’ and vendor_state = ‘CA’ and vendor_zip_code  = 93711);
+-----------------------------------------------------
+School DB
+Create Table Student(
+student_ID  int NOT NULL,
+Student_first_name varchar (15) NOT NULL,
+Student_last_name varchar (15) NOT NULL,
+Primary key (student_ID)
+);
+
+Create Table course(
+course_ID  int NOT NULL,
+course_name varchar (15) NOT NULL,
+ student_ID int NOT NULL,
+Primary key (course_ID ),
+Foreign key(student_ID) references student(student_ID)
+);
+
+
+Create Table schedule(
+schedule_ID  int NOT NULL,
+course_ID int NOT NULL,
+ student_ID int NOT NULL,
+Primary key (schedule_ID ),
+Foreign key(student_ID) references student(student_ID),
+Foreign key(course_ID) references course(course_ID)
+);
